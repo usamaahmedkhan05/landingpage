@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<nav class="navbar navbar-light navbar-expand fixed-top" id="mainNav" style="border-style: none;background: rgba(255,255,255,0);">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarResponsive"></div><a class="btn btn-danger" role="button" href="@Url.Action("Partner","Home")" style="border-radius: 5px;font-size: 15px;" href="partner.html" target="_blank">For BusinessES</a>
+    </div>
+</nav>
+<header class="masthead text-center text-white d-flex" style="background: url(&quot;/Content/assets/img/pexels-creative-stash-studio-768975.jpg&quot;) right / cover no-repeat;">
+    <div class="container my-auto" style="background: rgba(40,117,140,0.8);">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h1 class="text-uppercase" style="font-family: 'Berkshire Swash', cursive;color: #ffffff;">Extraado</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="col-lg-8 mx-auto" style="padding-bottom: 8px;">
+
+            @* This is the code *@
+
+            @if (TempData["Message"] != null)
+            {
+                <h2 class="text-primary mb-5">@TempData["Message"]</h2>
+            }
+
+
+            <p class="text-faded mb-5" style="color: rgb(255,255,255);font-weight: 500;">
+                We are building an online platform for your beauty and wellness needs by giving you access to verified specialists near you. You decide on where and when you want your service, let extraado sort out the rest.<br>Want to be the first to
+                access our platform?<br>Sign up now and we will add you to&nbsp;<br>the list!
+            </p><a class="btn btn-primary btn-xl js-scroll-trigger" role="button" data-dismiss="modal" data-toggle="modal" data-target="#signup" href="#services" style="border-radius: 3px;padding-top: 8px;padding-bottom: 8px;">Sign up</a>
+        </div>
+    </div>
+</header>
+
+
+<div class="modal fade" role="dialog" tabindex="-1" id="signup">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="color: #368096;font-family: 'Roboto Slab', serif;">Get notified</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <p style="color: rgb(85,126,143);">Please enter contact details below to register interest and hear from us, including opportunity to be invited to test the platform.</p>
+
+
+                @if (TempData["Message"] != null)
+                {
+                    <h2 class="text-primary mb-5">@TempData["Message"]</h2>
+                }
+
+
+                @using (Html.BeginForm("Create", "SimpleSignups", "", FormMethod.Post, new { @class = "w-full flex-w flex-c-m" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div id="Businesspersonel">
+                        <div class="form-group" style="padding-bottom: 8px;">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text" style="border-right-style: none;background: rgb(255,255,255);"><i class="fas fa-user" style="color: rgb(54,128,150);"></i></span></div><input class="form-control" type="text" placeholder="Your Name"
+                                                                                                                                                                                                                                              name="Name" style="border-left-style: none;color: rgb(54,128,150);" required="">
+                            </div>
+                        </div>
+                        <div class="form-group" style="padding-bottom: 8px;">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text" style="border-right-style: none;background: rgb(255,255,255);"><i class="icon ion-email" style="font-size: 22px;line-height: 15px;color: rgb(54,128,150);"></i></span></div><input class="form-control"
+                                                                                                                                                                                                                                                                                   type="text" placeholder="Email" name="Email" style="border-left-style: none;color: rgb(54,128,150);" required="">
+                            </div>
+                        </div>
+                        <div class="form-group" style="padding-bottom: 8px;">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text" style="border-right-style: none;background: rgb(255,255,255);"><i class="fas fa-phone-square-alt" style="font-size: 21px;color: rgb(54,128,150);"></i></span></div><input class="form-control"
+                                                                                                                                                                                                                                                                          name="Number" type="tel" placeholder="Contact Number" style="border-left-style: none;color: rgb(54,128,150);">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" type="submit" style="border-radius: 4px;">Notify Me</button>
+                }
+            </div>
+            <div class="modal-footer justify-content-between"><span style="width: 290px;font-family: Nunito, sans-serif;color: rgb(54,128,150);font-size: 14px;">Own or manage a beauty and wellness business?&nbsp;<a href=@Url.Action("Index","Home") target="_blank">Partner with us</a></span></div>
+        </div>
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+</div>

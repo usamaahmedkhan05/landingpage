@@ -1,0 +1,66 @@
+﻿@model IEnumerable<landingpage.Models.SimpleSignup>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<html>
+
+<body>
+
+
+    <form>
+        <div class="card-body">
+           
+            <table id="myTable" class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Number)
+                        </th>
+                
+                        <th></th>
+                    </tr>
+                <thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Number)
+                            </td>
+                         
+                        </tr>
+                    }
+                <tbody>
+
+            </table>
+        </div>
+    </form>
+</body>
+</html>
+
+
+<script>
+    //$(document).ready(function () {
+    //    $('#myTable').DataTable();
+    //});
+
+    $("#myTable").DataTable({ scrollX: true });
+</script>
