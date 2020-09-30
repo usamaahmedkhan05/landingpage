@@ -15,10 +15,22 @@
                     </div>
                 </div>
                 <div class="col-lg-8 mx-auto" style="padding-top: 8px;padding-bottom: 8px;">
-                    <p class="text-faded mb-5" style="color: rgb(255,255,255);">
-                        Focus on your clients, let us take care of your admin work, introduce you to new clients and help maintain existing clients; with features and services designed around your business.<br>We are working hard to get our platform up and running.
-                        Sign up to learn more and&nbsp; be one of the first businesses to join the platform.<br>
-                    </p><a class="btn btn-primary btn-xl js-scroll-trigger" role="button" data-dismiss="modal" data-toggle="modal" data-target="#partnersignup" href="#services" style="border-radius: 3px;padding-top: 8px;padding-bottom: 8px;">Sign up</a>
+
+                    @if (TempData["Message"] != null)
+                    {
+
+                        <p class="text-faded mb-5" style="color: rgb(255,255,255);">
+                            Focus on your clients, let us take care of your admin work, introduce you to new clients and help maintain existing clients; with features and services designed around your business.<br>We are working hard to get our platform up and running.
+                            Sign up to learn more and&nbsp; be one of the first businesses to join the platform.<br>
+                        </p><a class="btn btn-primary btn-xl js-scroll-trigger" role="button" data-dismiss="modal" data-toggle="modal" data-target="#partnersignup" href="#services" style="border-radius: 3px;padding-top: 8px;padding-bottom: 8px;">@TempData["Message"]</a>
+                    }
+                    else
+                    {
+                        <p class="text-faded mb-5" style="color: rgb(255,255,255);">
+                            Focus on your clients, let us take care of your admin work, introduce you to new clients and help maintain existing clients; with features and services designed around your business.<br>We are working hard to get our platform up and running.
+                            Sign up to learn more and&nbsp; be one of the first businesses to join the platform.<br>
+                        </p><a class="btn btn-primary btn-xl js-scroll-trigger" role="button" data-dismiss="modal" data-toggle="modal" data-target="#partnersignup" href="#services" style="border-radius: 3px;padding-top: 8px;padding-bottom: 8px;">Sign up</a>
+                    }
                 </div>
             </div>
         </header>
@@ -33,10 +45,7 @@
                        
 
                         @* This is the code *@
-                            @if (TempData["Message"] != null)
-                            {
-                                <h2 class="text-primary mb-5">@TempData["Message"]</h2>
-                            }
+                           
 
 
                             @using (Html.BeginForm("Create", "BusinesSignups", "", FormMethod.Post, new { @class = "w-full flex-w flex-c-m" }))

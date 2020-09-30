@@ -18,16 +18,31 @@
 
             @* This is the code *@
 
+            @*@if (TempData["Message"] != null)
+        {
+            <h2 class="text-primary mb-5">@TempData["Message"]</h2>
+        }*@
+
+
+
+
             @if (TempData["Message"] != null)
             {
-                <h2 class="text-primary mb-5">@TempData["Message"]</h2>
+                <p class="text-faded mb-5" style="color: rgb(255,255,255);font-weight: 500;">
+                    We are building an online platform for your beauty and wellness needs by giving you access to verified specialists near you. You decide on where and when you want your service, let extraado sort out the rest.<br>Want to be the first to
+                    access our platform?<br>Sign up now and we will add you to&nbsp;<br>the list!
+
+                </p><a class="btn btn-primary btn-xl js-scroll-trigger" role="button" data-dismiss="modal" data-toggle="modal" data-target="#signup" href="#services" style="border-radius: 3px;padding-top: 8px;padding-bottom: 8px;">@TempData["Message"]</a>
             }
+            else
+            {
 
+                <p class="text-faded mb-5" style="color: rgb(255,255,255);font-weight: 500;">
+                    We are building an online platform for your beauty and wellness needs by giving you access to verified specialists near you. You decide on where and when you want your service, let extraado sort out the rest.<br>Want to be the first to
+                    access our platform?<br>Sign up now and we will add you to&nbsp;<br>the list!
 
-            <p class="text-faded mb-5" style="color: rgb(255,255,255);font-weight: 500;">
-                We are building an online platform for your beauty and wellness needs by giving you access to verified specialists near you. You decide on where and when you want your service, let extraado sort out the rest.<br>Want to be the first to
-                access our platform?<br>Sign up now and we will add you to&nbsp;<br>the list!
-            </p><a class="btn btn-primary btn-xl js-scroll-trigger" role="button" data-dismiss="modal" data-toggle="modal" data-target="#signup" href="#services" style="border-radius: 3px;padding-top: 8px;padding-bottom: 8px;">Sign up</a>
+                </p><a class="btn btn-primary btn-xl js-scroll-trigger" role="button" data-dismiss="modal" data-toggle="modal" data-target="#signup" href="#services" style="border-radius: 3px;padding-top: 8px;padding-bottom: 8px;">Sign up</a>
+            }
         </div>
     </div>
 </header>
@@ -43,12 +58,7 @@
                 <p style="color: rgb(85,126,143);">Please enter contact details below to register interest and hear from us, including opportunity to be invited to test the platform.</p>
 
 
-                @if (TempData["Message"] != null)
-                {
-                    <h2 class="text-primary mb-5">@TempData["Message"]</h2>
-                }
-
-
+              
                 @using (Html.BeginForm("Create", "SimpleSignups", "", FormMethod.Post, new { @class = "w-full flex-w flex-c-m" }))
                 {
                     @Html.AntiForgeryToken()
